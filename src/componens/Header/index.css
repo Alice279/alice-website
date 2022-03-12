@@ -1,1 +1,13 @@
-@import '~antd/dist/antd.css';
+
+.header {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+
+.header-image {
+
+}
+
+.header-icon {
+    display: flex;
+}

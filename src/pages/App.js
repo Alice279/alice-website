@@ -1,10 +1,16 @@
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 import Header from '../componens/Header'
 
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
-    </div>
+    </Router>
   );
 }
 
