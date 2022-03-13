@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link, Router } from 'react-router-dom'
-import { StarTwoTone, DownCircleFilled, DownCircleOutlined } from '@ant-design/icons'
+import { StarTwoTone, DownCircleTwoTone } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import './index.css'
 import useTheme from '../../hooks/useTheme'
+import { changeLanguage } from 'i18next'
 
 function Header() {
 
@@ -24,7 +25,11 @@ function Header() {
     }
 
     //切换语言
-    const {t, i18n} = useTranslation('header')
+    const {t, i18n} = useTranslation()
+    const toggleLanguage = () => {
+        console.log(i18n.language)
+        i18n.changeLanguage('en')
+    }
 
     return (
         <div className="header">
@@ -42,8 +47,8 @@ function Header() {
                 <div onClick={toggleMode}>
                     {isDarkMode ? <StarTwoTone twoToneColor="#eb2f96" style={style} /> : <StarTwoTone twoToneColor="#1b2a96" style={style} />}
                 </div>
-                <div>
-                    {isDarkMode ? <DownCircleFilled style={style} /> : <DownCircleOutlined style={style} />}
+                <div onClick={toggleLanguage}>
+                    {isDarkMode ? <DownCircleTwoTone twoToneColor="#eb2f96" style={style} /> : <DownCircleTwoTone twoToneColor="#1b2a96" style={style} />}
                 </div>
             </div>
         </div>
