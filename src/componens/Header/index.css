@@ -2,12 +2,56 @@
 .header {
     display: flex;
     justify-content: space-between;
+    margin: 30px;
 }
 
-.header-image {
-    
+.header-links {
+    display: flex;
+    flex-grow: 2;
+    margin: 0 90px;
+    justify-content: space-around;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: large;
+    text-align: center;
+    color: inherit;
+}
+
+.nav-link.active {
+    /* text-decoration: none; */
+    font-size: larger;
+    border-bottom: 1px solid
+    /* text-align: center; */
+    /* color: inherit; */
 }
 
 .header-icon {
     display: flex;
+}
+
+.icon-mode {
+    margin-right: 17px;
+} 
+
+.header-icon > div {
+    cursor:pointer;
+    position: relative;
+}
+
+.change-language {
+    display: none;
+    position: absolute;
+    left: -15px;
+    top: 40px;
+
+    /* 设置半透明边框和背景 */
+    padding: 6px;
+    background: hsla(0, 0%, 100%, .5);
+    border: 2px solid hsla(0, 0%, 100%, .5);
+}
+
+.change-language > div {
+    margin-bottom: 10px;
 }
