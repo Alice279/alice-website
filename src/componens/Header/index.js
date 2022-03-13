@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Link, Router } from 'react-router-dom'
-import { StarTwoTone, DownCircleTwoTone } from '@ant-design/icons'
-import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { StarTwoTone, DownCircleTwoTone, SmileTwoTone } from '@ant-design/icons'
+import { useTranslation, Trans } from 'react-i18next'
 import './index.css'
 import useTheme from '../../hooks/useTheme'
-import { changeLanguage } from 'i18next'
 
 function Header() {
 
@@ -25,30 +24,46 @@ function Header() {
     }
 
     //切换语言
-    const {t, i18n} = useTranslation()
-    const toggleLanguage = () => {
-        console.log(i18n.language)
-        i18n.changeLanguage('en')
+    const { t, i18n } = useTranslation()
+    const toggleLanguage = (lng) => {
+        // console.log(i18n.language)
+        i18n.changeLanguage(lng)
     }
+    const languages = ['en', 'zh'];
 
     return (
         <div className="header">
             <div className="header-image">
-                logo
+                <Link to="/">
+                    <SmileTwoTone />
+                </Link>
             </div>
-            
-            <div>
-                <Link to="/about">{t('About')}</Link> 
-                <Link to="/goods">Goods</Link>
-                <Link to="/message">Message</Link>
+
+            <div className="header-links ">
+                <Link to="/about">{t('About')}</Link>
+                <Link to="/goods">{t('Goods')}</Link>
+                <Link to="/message">{t('Message')}</Link>
             </div>
 
             <div className="header-icon">
                 <div onClick={toggleMode}>
-                    {isDarkMode ? <StarTwoTone twoToneColor="#eb2f96" style={style} /> : <StarTwoTone twoToneColor="#1b2a96" style={style} />}
+                    {isDarkMode ?
+                        <StarTwoTone twoToneColor="#eb2f96" style={style} /> :
+                        <StarTwoTone twoToneColor="#1b2a96" style={style} />}
                 </div>
-                <div onClick={toggleLanguage}>
-                    {isDarkMode ? <DownCircleTwoTone twoToneColor="#eb2f96" style={style} /> : <DownCircleTwoTone twoToneColor="#1b2a96" style={style} />}
+                <div>
+                    {isDarkMode ?
+                        <DownCircleTwoTone twoToneColor="#eb2f96" style={style} /> :
+                        <DownCircleTwoTone twoToneColor="#1b2a96" style={style} />}
+
+                    <div className="change-language">
+                        {languages.map((lng) => (
+                            <div key={lng} onClick={() => toggleLanguage(lng)}>
+                                <Trans>{lng}</Trans>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </div>
