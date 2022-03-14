@@ -1,32 +1,35 @@
 import React, { useMemo } from 'react'
+import useTheme from '../../hooks/useTheme'
 
 function Button({
-    className = '',
-    size = 'medium',
-    color = '',
-    bgcolor = '',
-    border = '',
+    size = 'large',
     onClick,
     children,
-    ...props
 }) {
-    const colorStyle = useMemo(() => {
 
-    }, [])
+    const {value: isDarkMode} = useTheme()
+
+    const colorStyle = useMemo(() => {
+        if (isDarkMode) return { backgroundColor: '#CD919E', boxShadow: '0 0 20px #CD919E'}
+        return { backgroundColor: '#eb2f96', boxShadow: '0 0 20px #eb2f96'}
+    }, [isDarkMode])
 
     const sizeStyle = useMemo(() => {
-        if (size == 'small') return {width: '60px', height: '20px'};
-        if (size == 'medium') return {width: '90px', height: '30px'};
-        if (size == 'large') return {width: '120px', height: '40px'}
+        if (size == 'small') return {width: '90px', height: '30px'};
+        if (size == 'medium') return {width: '120px', height: '40px'};
+        if (size == 'large') return {width: '180px', height: '60px'};
     }, [size])
 
-    const borderStyle = useMemo(() => {
-        if (border == 'none') return
-        if (border == 'hsla') return {border: '10px solid hsla(0, 0%, 100%, .5)'}
-    }, [border])
+    const style = {
+        borderRadius: '17px',
+        border: 'none',
+
+        ...sizeStyle,
+        ...colorStyle
+    }
 
     return (
-        <button style={{color: 'red', backgroundColor: 'rosybrown',border: '10px solid hsla(0, 0%, 100%, .1)'}}>nihao</button>
+        <button style={style}>{children}</button>
     )
 }
 
