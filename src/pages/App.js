@@ -9,6 +9,7 @@ import Home from '../pages/Home'
 import About from '../pages/About'
 import Goods from '../pages/Goods'
 import Message from '../pages/Message'
+import './App.css'
 
 function App() {
   return (

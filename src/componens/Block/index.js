@@ -5,10 +5,13 @@ function Block ({name}) {
     const style = {
         width: '70px',
         height: '70px',
-        backgroundColor: 'blue',
+        backgroundColor: 'rgb(226, 196, 102)',
         borderRadius: '20px',
+        outline: '6px solid rgb(217, 129, 75)',
 
-        outline: '6px solid #b4a078'
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 
     return (

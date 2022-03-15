@@ -3,6 +3,7 @@ import useTheme from '../../hooks/useTheme'
 
 function Button({
     size = 'large',
+    className = '',
     onClick,
     children,
 }) {
@@ -29,7 +30,7 @@ function Button({
     }
 
     return (
-        <button style={style}>{children}</button>
+        <button className={className} style={style}>{children}</button>
     )
 }
 

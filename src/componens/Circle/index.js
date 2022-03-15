@@ -1,31 +1,34 @@
 import React from 'react'
 import Block from '../Block'
+import Button from '../Button'
+import './index.css'
 
 function Circle() {
     return (
         <div className="main">
             <div className="path">
-                <img className="logo" src="./static/vue-logo.png" />
-                <Block name="React"/>
+                <Button className="button">Come on!</Button>
+                
                 <div className="avatar">
-                    <span>Evan You</span>
-                    <img src="./static/Evan.jpeg" />
+                    <Block name="HTMLCSS"/>
                 </div>
                 <div className="avatar">
-                    <span>Damian Dulisz</span>
-                    <img src="./static/Dulisz.jpeg" />
+                    <Block name="JS"/>
                 </div>
                 <div className="avatar">
-                    <span>defcc</span>
-                    <img src="./static/defcc.png" />
+                    <Block name="React"/>
                 </div>
                 <div className="avatar">
-                    <span>Edd Yerburgh</span>
-                    <img src="./static/Yerburgh.png" />
+                    <Block name="Browser"/>
                 </div>
                 <div className="avatar">
-                    <span>Sarah Drasner</span>
-                    <img src="./static/Drasner.jpeg" />
+                    <Block name="Project"/>
+                </div>
+                <div className="avatar">
+                    <Block name="Computer"/>
+                </div>
+                <div className="avatar">
+                    <Block name="Others"/>
                 </div>
             </div>
         </div>
