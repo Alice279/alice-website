@@ -1,17 +1,21 @@
-import React, {Fragment} from 'react'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import Button from '../../componens/Button'
 import Circle from '../../componens/Circle'
-import Block from '../../componens/Block'
 import './index.css'
 
 function Home () {
+
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push('/about')
+    }
+
     return (
         <div className="home">
-
-{/* <Block name="React"/> */}
-
-            <Circle />
-            {/* <Button /> */}
+            <Circle className="circle"/>
+            <Button className="button" Click={handleClick} place="home">Come on!</Button>
         </div>
     )
 }

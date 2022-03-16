@@ -7,7 +7,7 @@ function Circle() {
     return (
         <div className="main">
             <div className="path">
-                <Button className="button">Come on!</Button>
+                {/* <Button className="button">Come on!</Button> */}
                 
                 <div className="avatar">
                     <Block name="HTMLCSS"/>

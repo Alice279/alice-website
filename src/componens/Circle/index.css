@@ -1,25 +1,28 @@
   .main {
-    width: 100%; height: 529px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%; height: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
   }
+
   .path {
-    width: 300px; height: 300px;
+    width: 60vh; 
+    height: 60vh;
     border-radius: 50%;
-    margin: 100px auto;
+    margin: auto;
     position: relative;
-    display: flex;
     border: 1px solid #b4a078;
   }
-  .button {
-    margin: auto;
-  }
+
   .avatar {
     width: 50px;
     position: absolute;
-    top: 124px; left: 124px;
-    animation: circular-smooth-spin 10.5s infinite linear;
+    top: 50%;
+    margin-top: -10%;
+    left: 50%;
+    margin-left: -10%;
+    animation: circular-smooth-spin 42s infinite linear;
     animation-play-state: running;
   }
 
@@ -28,35 +31,35 @@
   }
 
   .avatar:nth-of-type(2){
-    animation-delay: -1.5s;
-  }
-
-  .avatar:nth-of-type(3){
-    animation-delay: -3s;
-  }
-
-  .avatar:nth-of-type(4){
-    animation-delay: -4.5s;
-  }
-
-  .avatar:nth-of-type(5){
     animation-delay: -6s;
   }
 
+  .avatar:nth-of-type(3){
+    animation-delay: -12s;
+  }
+
+  .avatar:nth-of-type(4){
+    animation-delay: -18s;
+  }
+
+  .avatar:nth-of-type(5){
+    animation-delay: -24s;
+  }
+
   .avatar:nth-of-type(6){
-    animation-delay: -7.5s;
+    animation-delay: -30s;
   }
 
   .avatar:nth-of-type(7){
-    animation-delay: -9s;
+    animation-delay: -36s;
   }
 
   @keyframes circular-smooth-spin {
     from {
-      transform: rotate(0turn) translateY(-150px) rotate(1turn)
+      transform: rotate(0turn) translateY(calc(47vh - 52px)) rotate(1turn)
     }
     to {
       opacity: 1;
-      transform: rotate(1turn) translateY(-150px) rotate(0turn)
+      transform: rotate(1turn) translateY(calc(47vh - 52px)) rotate(0turn)
     }
   }
