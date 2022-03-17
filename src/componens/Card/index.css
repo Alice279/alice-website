@@ -1,5 +1,28 @@
 .card {
-    width: 70%;
-    height: 200px;
-    background-color: black;
+    width: 60%;
+    /* height: 200px; */
+    /* border: 3px solid #eb2f96; */
+    border-radius: 30px;
+    padding: 0 30px;
+}
+
+.card-title {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.card-content {
+    font-size: 22px;
+    display: none;
+}
+
+.card-content.active {
+    font-size: 22px;
+    display: block;
+}
+
+.card-item {
+    margin: 9px;
 }

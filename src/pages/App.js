@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useMemo } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +12,7 @@ import Message from '../pages/Message'
 import './App.css'
 
 function App() {
+
   return (
     <Suspense fallback={<div>稍等片刻</div>}>
       <Router>
@@ -43,3 +44,6 @@ export default App;
 
 //home 那里要加exact 是因为，我们使用了 switch 就会找到一个之后不继续向下寻找
 //比如，没有 exact 的话，因为 home 在上面，所以就先找到了 home 渲染 home
+
+
+//又发现一个tailwind的好处，当样式和变量有关系时，用变量决定类名，而不用写css文件，格外的方便

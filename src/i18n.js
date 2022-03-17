@@ -9,7 +9,9 @@ const resources = {
             "Goods": "Goods",
             "Message": "Message",
             "en": "English",
-            "zh": "中文"
+            "zh": "中文",
+
+            "Browser": "Browser"
         }
     },
     zh: {
@@ -18,7 +20,9 @@ const resources = {
             "Goods": "小铺",
             "Message": "留言",
             "en": "English",
-            "zh": "中文"
+            "zh": "中文",
+
+            "Browser": "浏览器相关"
         }
     }
 };
