@@ -1,17 +1,19 @@
-import React, {useMemo, useState} from 'react'
+import React, {useMemo, useContext} from 'react'
 import { DownCircleTwoTone, RightCircleTwoTone } from '@ant-design/icons'
 import { Trans } from 'react-i18next'
 import useTheme from '../../hooks/useTheme'
 import './index.css'
+import {cardContext} from '../../pages/App'
 
 
 
 function Card (props) {
 
-    const [active, setActive] = useState(false);
+    // const [active, setActive] = useState(false);
     const handleClick = () => {
         setActive(active => !active)
     }
+    const { active, setActive } = useContext(cardContext)
 
     //箭头，颜色，形状
     const { value: isDarkMode } = useTheme()

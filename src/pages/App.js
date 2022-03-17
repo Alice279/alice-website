@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react'
+import React, { Suspense, createContext, useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -11,7 +11,17 @@ import Goods from '../pages/Goods'
 import Message from '../pages/Message'
 import './App.css'
 
+export const cardContext = createContext({})
+
+
 function App() {
+
+  const [active, setActive] = useState(false)
+
+  const value = {
+    active,
+    setActive
+  }
 
   return (
     <Suspense fallback={<div>稍等片刻</div>}>
@@ -19,18 +29,20 @@ function App() {
         <div className="page">
           <Header />
           <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/goods">
-              <Goods />
-            </Route>
-            <Route path="/message">
-              <Message />
-            </Route>
+            <cardContext.Provider value={value}>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/goods">
+                <Goods />
+              </Route>
+              <Route path="/message">
+                <Message />
+              </Route>
+            </cardContext.Provider>
           </Switch>
         </div>
       </Router>
