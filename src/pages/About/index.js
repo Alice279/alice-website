@@ -5,7 +5,7 @@ import './index.css'
 function About () {
 
     const datas = {
-        htmlcss : ['sss', 'd', 'd'],
+        htmlcss : ['sss', 'c', 'd'],
         js : ['dd', 'gg', 'f'],
         react : ['dd', 'gg', 'f'],
         browser : ['aaa', 'bbb', 'ccc'],
