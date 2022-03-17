@@ -29,7 +29,8 @@ function Button({
     const style = {
         borderRadius: '17px',
         border: 'none',
-
+        cursor: 'pointer',
+        
         ...sizeStyle,
         ...colorStyle
     }

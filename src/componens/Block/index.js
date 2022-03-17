@@ -11,7 +11,9 @@ function Block ({name}) {
 
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+
+        cursor: 'pointer'
     }
 
     return (
