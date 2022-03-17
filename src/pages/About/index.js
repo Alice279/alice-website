@@ -4,10 +4,20 @@ import './index.css'
 
 function About () {
 
-    const browser = ['aaa', 'bbb', 'ccc'];
+    const datas = {
+        htmlcss : ['sss', 'd', 'd'],
+        js : ['dd', 'gg', 'f'],
+        react : ['dd', 'gg', 'f'],
+        browser : ['aaa', 'bbb', 'ccc'],
+        project : ['dd', 'gg', 'f'],
+        computer : ['dd', 'gg', 'f'],
+        others : ['dd', 'gg', 'f']
+    }
     return (
         <div className="about">
-            <Card title="Browser" array={browser}/>
+            {Object.keys(datas).map((item) => (
+                <Card key={item} title={item} array={datas[item]}/>
+            ))}
         </div>
     )
 }
