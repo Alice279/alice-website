@@ -23,9 +23,8 @@ function Block ({name, index}) {
     const {active, setActive} = useContext(cardContext)
     const handleClick = (index) => {
         history.push('/about')
-        let array = [...active];
-        let item = !active[index]
-        array[index] = item;
+        let array = [false, false, false, false, false, false, false];
+        array[index] = true;
         setActive(array)
     }
 
