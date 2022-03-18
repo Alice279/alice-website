@@ -14,7 +14,6 @@ function Header() {
     const [current, setCurrent] = useState('about');
 
     const handleClick = (e) => {
-        console.log(e.target.id)  //合成事件，e.target是目标对象，还有一个currentTarget
         setCurrent(e.target.id)
     }
 
@@ -26,7 +25,6 @@ function Header() {
     //切换语言
     const { t, i18n } = useTranslation()
     const toggleLanguage = (lng) => {
-        // console.log(i18n.language)
         i18n.changeLanguage(lng)
     }
     const languages = ['en', 'zh'];
