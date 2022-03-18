@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from '../../componens/Card'
 import './index.css'
+// import {cardContext} from '../App'
 
 function About () {
 
@@ -13,10 +14,20 @@ function About () {
         computer : ['dd', 'gg', 'f'],
         others : ['dd', 'gg', 'f']
     }
+
+    // const { active, setActive } = useContext(cardContext)
+    // const handleClick = (index) => {
+    //     console.log(13)
+    //     const newactive  = Array(6).fill(true);
+    //     newactive[index] = true
+    //     setActive(newactive)
+    // }
+
+
     return (
         <div className="about">
-            {Object.keys(datas).map((item) => (
-                <Card key={item} title={item} array={datas[item]}/>
+            {Object.keys(datas).map((item, index) => (
+                <Card key={item} title={item} array={datas[item]} index={index}/>
             ))}
         </div>
     )

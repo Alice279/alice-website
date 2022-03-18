@@ -1,4 +1,4 @@
-import React, {useMemo, useContext} from 'react'
+import React, { useMemo, useContext } from 'react'
 import { DownCircleTwoTone, RightCircleTwoTone } from '@ant-design/icons'
 import { Trans } from 'react-i18next'
 import useTheme from '../../hooks/useTheme'
@@ -7,13 +7,20 @@ import {cardContext} from '../../pages/App'
 
 
 
-function Card (props) {
+function Card(props) {
 
-    // const [active, setActive] = useState(false);
-    const handleClick = () => {
-        setActive(active => !active)
-    }
+    //使用useState时，如果状态是一个对象，检测时对比的是引用地址，所以想改变必须使用一个新的对象
+    //也就是不可以把对象的值在外面改变了之后再把该对象传给set函数
     const { active, setActive } = useContext(cardContext)
+    const handleClick = (index) => {
+        let array = [...active];
+        let item = !active[index]
+        array[index] = item;
+        setActive(array)    
+    }
+
+    // 读取数据
+    const { title, array, index } = props
 
     //箭头，颜色，形状
     const { value: isDarkMode } = useTheme()
@@ -21,34 +28,31 @@ function Card (props) {
     const icon = useMemo(() => {
         if (active) {
             if (isDarkMode) return (
-                <DownCircleTwoTone twoToneColor="#CD919E" style={{fontSize: '36px'}}/>
+                <DownCircleTwoTone twoToneColor="#CD919E" style={{ fontSize: '36px' }} />
             )
             return (
-                <DownCircleTwoTone twoToneColor="#eb2f96" style={{fontSize: '36px'}}/>
+                <DownCircleTwoTone twoToneColor="#eb2f96" style={{ fontSize: '36px' }} />
             )
         } else {
             if (isDarkMode) return (
-                <RightCircleTwoTone twoToneColor="#CD919E" style={{fontSize: '36px'}}/>
+                <RightCircleTwoTone twoToneColor="#CD919E" style={{ fontSize: '36px' }} />
             )
             return (
-                <RightCircleTwoTone twoToneColor="#eb2f96" style={{fontSize: '36px'}}/>
+                <RightCircleTwoTone twoToneColor="#eb2f96" style={{ fontSize: '36px' }} />
             )
         }
     }, [isDarkMode, active])
 
-    //读取数据
-    const {title, array} = props
-
     return (
-        <div className="card" style={isDarkMode ? {border: '3px solid #CD919E'} : {border: '3px solid #eb2f96'}}>
-            <div className="card-title" onClick={handleClick}>
+        <div className="card" style={isDarkMode ? { border: '3px solid #CD919E' } : { border: '3px solid #eb2f96' }}>
+            <div className="card-title" onClick={() => handleClick(index)}>
                 {icon}
-                <div style={{margin: '0 12px'}}><Trans>{title}</Trans></div>
+                <div style={{ margin: '0 12px' }}><Trans>{title}</Trans></div>
             </div>
-            <div className={`card-content ${active === true ? `active` : ''}`}>
+            <div className={`card-content ${active[index] === true ? `active` : ''}`}>
                 {array.map((item, index) => (
-                    <div className="card-item" key={item}>{index+1}. <Trans>{item}</Trans></div>
-                ))}   
+                    <div className="card-item" key={item}>{index + 1}. <Trans>{item}</Trans></div>
+                ))}
             </div>
         </div>
     )
