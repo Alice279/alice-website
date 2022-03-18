@@ -1,9 +1,9 @@
-import React, { useMemo, useContext } from 'react'
+import React, { useMemo, useContext, useEffect } from 'react'
 import { DownCircleTwoTone, RightCircleTwoTone } from '@ant-design/icons'
 import { Trans } from 'react-i18next'
 import useTheme from '../../hooks/useTheme'
 import './index.css'
-import {cardContext} from '../../pages/App'
+import { cardContext } from '../../pages/App'
 
 
 
@@ -16,7 +16,7 @@ function Card(props) {
         let array = [...active];
         let item = !active[index]
         array[index] = item;
-        setActive(array)    
+        setActive(array)
     }
 
     // 读取数据
@@ -43,8 +43,23 @@ function Card(props) {
         }
     }, [isDarkMode, active])
 
+    function heightToTop(ele){
+        let rectObject = ele.getBoundingClientRect();
+        return rectObject.top
+    }
+
+    useEffect(() => {
+        let ele = document.getElementById('unfold');
+        window.scrollTo({
+            top: heightToTop(ele),
+            behavior: 'smooth'
+        })
+    }, [])
+
     return (
-        <div className="card" style={isDarkMode ? { border: '3px solid #CD919E' } : { border: '3px solid #eb2f96' }}>
+        <div className="card"
+            id={active[index] === true ? 'unfold' : ''}
+            style={isDarkMode ? { border: '3px solid #CD919E' } : { border: '3px solid #eb2f96' }}>
             <div className="card-title" onClick={() => handleClick(index)}>
                 {icon}
                 <div style={{ margin: '0 12px' }}><Trans>{title}</Trans></div>

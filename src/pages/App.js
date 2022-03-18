@@ -5,6 +5,7 @@ import {
   Switch,
 } from 'react-router-dom'
 import Header from '../componens/Header'
+import Footer from '../componens/Footer'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import Goods from '../pages/Goods'
@@ -44,6 +45,7 @@ function App() {
               </Route>
             </cardContext.Provider>
           </Switch>
+          <Footer /> 
         </div>
       </Router>
     </Suspense>
