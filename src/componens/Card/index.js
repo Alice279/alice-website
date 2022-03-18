@@ -43,6 +43,7 @@ function Card(props) {
         }
     }, [isDarkMode, active])
 
+    //第一次渲染时，检测有没有展开的card 如果有就滑动到该 card 的位置
     function heightToTop(ele){
         let rectObject = ele.getBoundingClientRect();
         return rectObject.top
