@@ -23,7 +23,7 @@ function Footer() {
             <div className="footer-arrow" onClick={handleClick}>
                 {isDarkMode ?
                     <UpSquareTwoTone twoToneColor="#CD919E" style={{fontSize: '98px'}}/> :
-                    <UpSquareTwoTone twoToneColor="#eb2f96" />}
+                    <UpSquareTwoTone twoToneColor="#eb2f96" style={{fontSize: '98px'}}/>}
             </div>
         </div>
     )
