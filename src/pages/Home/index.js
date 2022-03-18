@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useHistory } from 'react-router-dom'
 import Button from '../../componens/Button'
 import Circle from '../../componens/Circle'
 import './index.css'
+import {cardContext} from '../App'
 
 function Home () {
 
     const history = useHistory();
 
-    const handleClick = () => {
+    const {active, setActive} = useContext(cardContext)
+    const handleClick = (index) => {
         history.push('/about')
+        let array = [false, false, false, false, false, false, false];
+        array[index] = true;
+        setActive(array)
     }
 
     return (
