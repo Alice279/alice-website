@@ -15,15 +15,6 @@ function About () {
         others : ['dd', 'gg', 'f']
     }
 
-    // const { active, setActive } = useContext(cardContext)
-    // const handleClick = (index) => {
-    //     console.log(13)
-    //     const newactive  = Array(6).fill(true);
-    //     newactive[index] = true
-    //     setActive(newactive)
-    // }
-
-
     return (
         <div className="about">
             {Object.keys(datas).map((item, index) => (

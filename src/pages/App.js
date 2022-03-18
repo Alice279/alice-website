@@ -16,7 +16,7 @@ export const cardContext = createContext({})
 
 function App() {
 
-  const [active, setActive] = useState([false, true, false, false, false, false, false])
+  const [active, setActive] = useState([false, false, false, false, false, false, false])
 
   const value = {
     active,
