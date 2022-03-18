@@ -1,4 +1,3 @@
-import { use } from 'i18next'
 import React, {useContext} from 'react'
 import {useHistory} from 'react-router-dom'
 import {cardContext} from '../../pages/App'
