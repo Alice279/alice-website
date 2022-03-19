@@ -14,8 +14,11 @@ const resources = {
             "Browser": "Browser",
 
             "Developer Information": "Developer Information",
-            "name：Alice": "name：Alice",
-            "school：BUPT": "school：BUPT23"
+            "name": "name",
+            "Alice": "Alice",
+            "school：BUPT": "school：BUPT23",
+            "We-chat": "We-chat",
+            "E-mail": "E-mail"
         }
     },
     zh: {
@@ -29,8 +32,11 @@ const resources = {
             "Browser": "浏览器相关",
 
             "Developer Information": "开发者信息",
-            "name：Alice": "姓名：田润",
-            "school：BUPT": "学校：北邮23届"
+            "name": "姓名",
+            "Alice": "田润",
+            "school：BUPT": "学校：北邮23届",
+            "We-chat": "微信",
+            "E-mail": "邮箱"
         }
     }
 };

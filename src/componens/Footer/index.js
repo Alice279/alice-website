@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { UpSquareTwoTone } from '@ant-design/icons'
 import { Trans } from 'react-i18next'
+import ReactClipboard from 'react-clipboardjs-copy'
 import useTheme from '../../hooks/useTheme'
 import Button from '../Button'
 import './index.css'
@@ -19,6 +20,17 @@ function Footer() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
+    const handleCopy = (e) => {
+        const value = e.target.previousSibling.innerHTML;
+
+        const textarea = document.createElement('textarea');
+        textarea.value = value
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    }
+
 
     if (pathname == '/') {
         return null
@@ -27,19 +39,21 @@ function Footer() {
         <div className="footer">
             <ul className="footer-basic">
                 <li><Trans>Developer Information</Trans></li>
-                <li><Trans>name：Alice</Trans></li>
+                <li><Trans>name</Trans>：<Trans>Alice</Trans></li>
                 <li><Trans>school：BUPT</Trans></li>
             </ul>
             <div className="footer-copy">
                 <div>
+                    <span>We-chat</span>
                     <span>alicetian972</span>
-                    <Button size="small" >
+                    <Button size="small" Click={(e) => handleCopy(e)}>
                         <Trans>copy wechat</Trans>
                     </Button>
                 </div>
                 <div>
+                    <span>E-mail</span>
                     <span>1196271266@qq.com</span>
-                    <Button size="small" >
+                    <Button size="small" Click={(e) => handleCopy(e)}>
                         <Trans>copy email</Trans>
                     </Button>
                 </div>
@@ -48,7 +62,7 @@ function Footer() {
                 <a href="https://github.com/Alice279" target="_blank">
                     <img src={gitDark} alt="github" />
                 </a>
-                <a className="wechat" href="#" onClick={(e) => {e.preventDefault()}}>
+                <a className="wechat" href="#" onClick={(e) => { e.preventDefault() }}>
                     <img src={wechatDark} alt="wechat" />
                     <img className="wechat-alice" src={wechatAlice} alt="wechat-alice" />
                 </a>
