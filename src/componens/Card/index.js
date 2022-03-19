@@ -51,10 +51,12 @@ function Card(props) {
 
     useEffect(() => {
         let ele = document.getElementById('unfold');
-        window.scrollTo({
-            top: heightToTop(ele),
-            behavior: 'smooth'
-        })
+        if (ele) {
+            window.scrollTo({
+                top: heightToTop(ele),
+                behavior: 'smooth'
+            })
+        }
     }, [])
 
     return (
