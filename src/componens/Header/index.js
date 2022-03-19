@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { StarTwoTone, DownCircleTwoTone, SmileTwoTone } from '@ant-design/icons'
 import { useTranslation, Trans } from 'react-i18next'
@@ -9,13 +9,6 @@ function Header() {
 
     //暗黑高亮模式的切换
     const { value: isDarkMode, toggle: toggleMode } = useTheme()
-
-    //这一块是头部导航的选择
-    const [current, setCurrent] = useState('about');
-
-    const handleClick = (e) => {
-        setCurrent(e.target.id)
-    }
 
     //颜色图标和语言选择图标的样式
     const style = {
@@ -51,12 +44,9 @@ function Header() {
                 </div>
 
                 <div className="header-links ">
-                    <Link className={`nav-link ${current == 'about' ? 'active' : ''}`}
-                        to="/about" id="about" onClick={handleClick}>
-                        <Trans>About</Trans>
-                    </Link>
-                    <Link className={`nav-link ${current == 'goods' ? 'active' : ''}`} to="/goods" id="goods" onClick={handleClick}>{t('Goods')}</Link>
-                    <Link className={`nav-link ${current == 'message' ? 'active' : ''}`} to="/message" id="message" onClick={handleClick}>{t('Message')}</Link>
+                    <Link className={`nav-link ${pathname == '/about' ? 'active' : ''}`}to="/about">{t('About')}</Link>
+                    <Link className={`nav-link ${pathname == '/goods' ? 'active' : ''}`} to="/goods" >{t('Goods')}</Link>
+                    <Link className={`nav-link ${pathname == '/message' ? 'active' : ''}`} to="/message" >{t('Message')}</Link>
                 </div>
 
                 <div className="header-icon">
