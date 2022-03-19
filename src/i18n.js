@@ -11,7 +11,11 @@ const resources = {
             "en": "English",
             "zh": "中文",
 
-            "Browser": "Browser"
+            "Browser": "Browser",
+
+            "Developer Information": "Developer Information",
+            "name：Alice": "name：Alice",
+            "school：BUPT": "school：BUPT23"
         }
     },
     zh: {
@@ -22,7 +26,11 @@ const resources = {
             "en": "English",
             "zh": "中文",
 
-            "Browser": "浏览器相关"
+            "Browser": "浏览器相关",
+
+            "Developer Information": "开发者信息",
+            "name：Alice": "姓名：田润",
+            "school：BUPT": "学校：北邮23届"
         }
     }
 };

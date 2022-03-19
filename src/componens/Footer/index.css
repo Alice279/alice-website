@@ -4,3 +4,53 @@
     display: flex;
     justify-content: space-between;
 }
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul :first-child {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.footer-copy {
+    margin: 16px;
+}
+
+.footer-copy > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.footer-copy span {
+    margin-right: 9px;
+}
+
+.footer-img {
+    display: flex;
+    align-items: center;
+}
+
+.wechat-alice {
+    display: none;
+}
+
+.wechat {
+    margin-left: 12px;
+    position: relative;
+}
+
+.wechat:hover .wechat-alice {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    left: -12px;
+}
+
+.footer-arrow:hover {
+    transform: translateY(-6px);
+    cursor: pointer;
+}
