@@ -1,4 +1,5 @@
-import Rect, { useEffect } from 'react'
+import Rect, { useEffect, useState } from 'react'
+import { LeftCircleTwoTone, RightCircleTwoTone } from '@ant-design/icons'
 import bear from '../../assets/carousel/bear.jpg'
 import beg from '../../assets/carousel/beg.jpg'
 import desk from '../../assets/carousel/desk.jpg'
@@ -27,41 +28,145 @@ function Carousel() {
     // let len = ul.children.length;    //   7 图片的数量
 
 
+    // let timer = null
+    // let left = 0;
 
-    useEffect(() => {
-        let left = 0;
-        setInterval(() => {
-            let ul = document.querySelector('ul');
+    // const qiehuan = () => {
+    //     clearInterval(timer)
+    //     timer = setInterval(() => {
+    //         let ul = document.querySelector('ul'); //为什么这个 ul 不可以放到全局变量？
 
-            if (left >= -1250) {
-                left -= 250;
-                ul.style.transition = 'left 250ms'
-            } else {
-                left = 0
-                ul.style.transition = 'none'
+    //         if (left >= -1250) {
+    //             left -= 250;
+    //             ul.style.transition = 'left 250ms'
+    //         } else {
+    //             left = 0
+    //             ul.style.transition = 'none'
+    //             qiehuan();
+    //         }
+
+    //         ul.style.left = left + 'px'
+
+    //     }, 1000)
+
+    // }
+
+    // useEffect(qiehuan, [])
+
+    //自己设想的使用hooks的方法，有一些问题
+    // const [direction, setDirection] = useState('left')
+    // const [curimg, setCurimg] = useState(0);
+
+    // const handleDirection = (e) => {
+    //     let nextDrc = e.target.id
+    //     if (nextDrc === 'left') {
+    //         setCurimg(curimg => curimg + 1);
+    //         console.log(curimg)
+    //         if (curimg === 5) {
+    //             setCurimg(0)
+    //             //这两个连着写，useState会吞掉
+    //             // setCurimg(1)
+    //             // return
+    //             // setCurimg(curimg => curimg + 1);
+    //         }
+    //         setDirection('left');
+    //     } else {
+    //         setCurimg(curimg => curimg - 1);
+    //         setDirection('right');
+    //     }
+    //     // console.log(curimg)
+    // }
+
+    // useEffect(()=> {
+    //     let ul = document.querySelector('ul');
+
+    //     let left = curimg * -250;
+    //     console.log(left)
+    //     ul.style.left = left + 'px'
+    //     if (curimg === 0) {
+    //         ul.style.transition = 'none';
+    //         console.log(2222)
+    //         // setCurimg(1)
+    //     } else {
+    //         ul.style.transition = 'left 250ms';
+    //     }
+    // }, [curimg])
+
+
+
+
+    // const [direction, setDirection] = useState('left')
+    // const [curimg, setCurimg] = useState(0);
+    let direction = 'left';
+    let curimg = 0;
+    // let ul = document.querySelector('ul');
+
+    const handleDirection = (e) => {
+
+        let nextDrc = e.target.id
+        if (nextDrc === 'left') {
+            curimg += 1;
+
+
+
+            if (curimg === 6) {
+                nextImg();
+                curimg = 0;
             }
-            
-            
-            ul.style.left = left + 'px'
+            direction = 'left';
+            nextImg();
+        } else {
+            curimg -= 1;
+            direction = 'right';
+        }
+    }
 
-        }, 3000)
+    const nextImg = () => {
+        let ul = document.querySelector('ul');
+        let left = curimg * -250;
+        ul.style.transition = 'left 250ms';
+        ul.style.left = left + 'px'
 
-    }, [])
+        
+    }
 
+    //为什么这里使用 useEffect 不管用了？
+
+    // useEffect(() => {
+    //     // console.log(curimg)
+    //     let ul = document.querySelector('ul');
+
+    //     let left = curimg * -250;
+    //     ul.style.left = left + 'px'
+    //     if (curimg === 0) {
+    //         ul.style.transition = 'none';
+    //     } else {
+    //         ul.style.transition = 'left 250ms';
+    //     }
+    // }, [curimg])
 
 
     return (
         <div className="carousel">
-            <div className="gallery">
-                <ul className="images">
-                    <li><img src={flower} /></li>
-                    <li><img src={bear} /></li>
-                    <li><img src={beg} /></li>
-                    <li><img src={desk} /></li>
-                    <li><img src={dress} /></li>
-                    <li><img src={mouse} /></li>
-                    <li><img src={flower} /></li>
-                </ul>
+            <div className="carousel-top">
+                <div id="left" onClick={(e) => handleDirection(e)} >
+                    {/* <LeftCircleTwoTone style={{ fontSize: '36px' }} /> */}
+                    ⇦
+                </div>
+                <div className="gallery">
+                    <ul className="images">
+                        <li><img src={flower} /></li>
+                        <li><img src={bear} /></li>
+                        <li><img src={beg} /></li>
+                        <li><img src={desk} /></li>
+                        <li><img src={dress} /></li>
+                        <li><img src={mouse} /></li>
+                        <li><img src={flower} /></li>
+                    </ul>
+                </div>
+                <div id="right" onClick={(e) => handleDirection(e)}>
+                    ⇨
+                </div>
             </div>
             <div className="dots"></div>
         </div>

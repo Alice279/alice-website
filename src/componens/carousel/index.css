@@ -1,6 +1,15 @@
 
 .carousel {
-    width: 250px;
+    /* width: 250px; */
+}
+
+.carousel-top {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-top>div {
+    cursor: pointer;
 }
 
 .images img {
@@ -11,6 +20,7 @@
 .gallery {
     width: 250px;
     height: 250px;
+    margin: 0 20px;
     overflow: hidden;
 
     position: relative;
