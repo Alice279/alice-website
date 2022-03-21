@@ -1,4 +1,4 @@
-import Rect, { useEffect, useState } from 'react'
+import Rect, { useEffect, useState, useRef } from 'react'
 import { LeftCircleTwoTone, RightCircleTwoTone } from '@ant-design/icons'
 import bear from '../../assets/carousel/bear.jpg'
 import beg from '../../assets/carousel/beg.jpg'
@@ -10,140 +10,120 @@ import './index.css'
 
 function Carousel() {
 
-    // function Roll(distance){                                         //参数distance：滚动的目标点（必为图片宽度的倍数）
-    //     clearInterval(img_ul.timer);                                     //每次运行该函数必须清除之前的定时器！
-    //     var speed = img_ul.offsetLeft < distance ?  rate : (0-rate);     //判断图片移动的方向
-
-    //     img_ul.timer = setInterval(function(){                           //设置定时器，每隔10毫秒，调用一次该匿名函数
-    //         img_ul.style.left = img_ul.offsetLeft + speed + "px";        //每一次调用滚动到的地方 (速度为 speed px/10 ms)         
-    //         var leave = distance - img_ul.offsetLeft;                    //距目标点剩余的px值      
-    //         /*接近目标点时的处理，滚动接近目标时直接到达， 避免rate值设置不当时不能完整显示图片*/
-    //         if (Math.abs(leave) <= Math.abs(speed)) {                    
-    //             clearInterval(img_ul.timer);
-    //             img_ul.style.left = distance + "px";
-    //         }
-    //     },10);
-    // }
-
-    // let len = ul.children.length;    //   7 图片的数量
-
-
-    // let timer = null
-    // let left = 0;
-
-    // const qiehuan = () => {
-    //     clearInterval(timer)
-    //     timer = setInterval(() => {
-    //         let ul = document.querySelector('ul'); //为什么这个 ul 不可以放到全局变量？
-
-    //         if (left >= -1250) {
-    //             left -= 250;
-    //             ul.style.transition = 'left 250ms'
-    //         } else {
-    //             left = 0
-    //             ul.style.transition = 'none'
-    //             qiehuan();
-    //         }
-
-    //         ul.style.left = left + 'px'
-
-    //     }, 1000)
-
-    // }
-
-    // useEffect(qiehuan, [])
-
-    //自己设想的使用hooks的方法，有一些问题
+    // //自己设想的使用hooks的方法，有一些问题
     // const [direction, setDirection] = useState('left')
     // const [curimg, setCurimg] = useState(0);
 
     // const handleDirection = (e) => {
     //     let nextDrc = e.target.id
     //     if (nextDrc === 'left') {
-    //         setCurimg(curimg => curimg + 1);
-    //         console.log(curimg)
-    //         if (curimg === 5) {
-    //             setCurimg(0)
-    //             //这两个连着写，useState会吞掉
-    //             // setCurimg(1)
-    //             // return
-    //             // setCurimg(curimg => curimg + 1);
+    //         setCurimg(curimg => curimg - 1);
+    //         if (curimg === 0) {
+    //             let ul = document.querySelector('ul');
+    //             ul.style.transition = 'none';
+    //             ul.style.left = '1500px'
+    //             setCurimg(6)
     //         }
     //         setDirection('left');
     //     } else {
-    //         setCurimg(curimg => curimg - 1);
+    //         console.log(curimg)
+    //         setCurimg(curimg => curimg + 1);
+    //         console.log(curimg)
+    //         nextImg();
+    //         console.log(curimg)
+    //         if (curimg === 6) {
+    //             let ul = document.querySelector('ul');
+    //             // ul.style.transition = 'none';
+    //             ul.style.left = '0px'
+    //             setCurimg(0);
+    //             console.log(curimg)
+    //         }
     //         setDirection('right');
     //     }
-    //     // console.log(curimg)
     // }
 
-    // useEffect(()=> {
+    // const nextImg = () => {
+    //     console.log(123)
     //     let ul = document.querySelector('ul');
 
     //     let left = curimg * -250;
-    //     console.log(left)
+    //     // console.log(left)
     //     ul.style.left = left + 'px'
-    //     if (curimg === 0) {
-    //         ul.style.transition = 'none';
-    //         console.log(2222)
-    //         // setCurimg(1)
-    //     } else {
+    //     // if ( curimg === 0) {
+    //     //     ul.style.transition = 'none';   //这个不是 curimg = 0 时没效果，而是从其它值变成 0 的这个过程没效果
+    //     // } else {
     //         ul.style.transition = 'left 250ms';
-    //     }
+    //     // }
+    // }
+
+    // useEffect(()=> {
+    //     console.log(123)
+    //     let ul = document.querySelector('ul');
+
+    //     let left = curimg * -250;
+    //     // console.log(left)
+    //     ul.style.left = left + 'px'
+    //     // if ( curimg === 0) {
+    //     //     ul.style.transition = 'none';   //这个不是 curimg = 0 时没效果，而是从其它值变成 0 的这个过程没效果
+    //     // } else {
+    //         ul.style.transition = 'left 250ms';
+    //     // }
     // }, [curimg])
 
 
 
 
+       //自己设想的使用hooks的方法，有一些问题
     // const [direction, setDirection] = useState('left')
     // const [curimg, setCurimg] = useState(0);
-    let direction = 'left';
-    let curimg = 0;
-    // let ul = document.querySelector('ul');
+    let curimg = useRef(0);
 
     const handleDirection = (e) => {
-
         let nextDrc = e.target.id
+
+        let ul = document.querySelector('ul');
+        ul.style.transition = 'left 250ms';
+
         if (nextDrc === 'left') {
-            curimg += 1;
-
-
-
-            if (curimg === 6) {
-                nextImg();
-                curimg = 0;
+            curimg.current = curimg.current - 1;
+            if (curimg.current === 0) {
+                let ul = document.querySelector('ul');
+                ul.style.transition = 'none';
+                ul.style.left = '1500px'
+                curimg.current = 6;
             }
-            direction = 'left';
-            nextImg();
+            // setDirection('left');
         } else {
-            curimg -= 1;
-            direction = 'right';
+            curimg.current = curimg.current + 1;
+            console.log(curimg.current)
+            // nextImg();
+
+            let left = curimg.current * -250;
+            ul.style.left = left + 'px'
+
+            if (curimg.current === 7) {
+                // let ul = document.querySelector('ul');
+                ul.style.transition = 'none';
+                ul.style.left = '0px'
+                curimg.current = 0;
+            }
         }
     }
 
     const nextImg = () => {
+        console.log(123)
         let ul = document.querySelector('ul');
-        let left = curimg * -250;
         ul.style.transition = 'left 250ms';
+
+
+        let left = curimg.current * -250;
+        // console.log(left)
         ul.style.left = left + 'px'
-
-        
+        // if ( curimg === 0) {
+        //     ul.style.transition = 'none';   //这个不是 curimg = 0 时没效果，而是从其它值变成 0 的这个过程没效果
+        // } else {
+        // }
     }
-
-    //为什么这里使用 useEffect 不管用了？
-
-    // useEffect(() => {
-    //     // console.log(curimg)
-    //     let ul = document.querySelector('ul');
-
-    //     let left = curimg * -250;
-    //     ul.style.left = left + 'px'
-    //     if (curimg === 0) {
-    //         ul.style.transition = 'none';
-    //     } else {
-    //         ul.style.transition = 'left 250ms';
-    //     }
-    // }, [curimg])
 
 
     return (
