@@ -12,6 +12,8 @@ import Goods from '../pages/Goods'
 import Message from '../pages/Message'
 import './App.css'
 
+import Bear from './Goods/bear'
+
 export const cardContext = createContext({})
 
 
@@ -40,12 +42,13 @@ function App() {
               <Route path="/goods">
                 <Goods />
               </Route>
+              <Route path="/bear" component={Bear}></Route>
               <Route path="/message">
                 <Message />
               </Route>
             </cardContext.Provider>
           </Switch>
-          <Footer /> 
+          <Footer />
         </div>
       </Router>
     </Suspense>
