@@ -6,8 +6,6 @@ function Button({
     place = 'others',
     className = '',
     Click,
-    MouseEnter,
-    MouseLeave,
     children,
 }) {
 
@@ -38,7 +36,7 @@ function Button({
     }
 
     return (
-        <button className={className} style={style} onClick={Click} onMouseEnter={MouseEnter} onMouseLeave={MouseLeave}>{children}</button>
+        <button className={className} style={style} onClick={Click}>{children}</button>
     )
 }
 

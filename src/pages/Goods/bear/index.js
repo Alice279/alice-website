@@ -13,6 +13,7 @@ function Bear() {
 
     const handleMouseEnterButton = () => {
         const button = document.getElementsByClassName('cant')[0];
+        console.log(button)
         button.style.position = "relative";
         button.style.left = '70px';
         button.style.top = '-50px'
@@ -72,8 +73,6 @@ function Bear() {
         let bigx = left / (boxSmall.offsetWidth - shadowEle.offsetWidth);
         bigImage.style.left = -bigx * (bigImage.offsetWidth - boxBig.offsetWidth) + "px";
 
-        console.log(bigImage.style.left)
-
         let bigy = top / (boxSmall.offsetHeight - shadowEle.offsetHeight);
         bigImage.style.top = -bigy * (bigImage.offsetHeight - boxBig.offsetHeight) + "px";
 
@@ -103,8 +102,8 @@ function Bear() {
                 </div>
                 <div className="infor-button">
                     <Button size="medium">加入购物车</Button>
-                    <div className="button-cant">
-                        <Button size="medium" MouseEnter={handleMouseEnterButton} MouseLeave={handleMouseLeaveButton} className="cant">立即购买</Button>
+                    <div className="button-cant" onMouseEnter={handleMouseEnterButton} onMouseLeave={handleMouseLeaveButton} onMouseMove={handleMouseEnterButton}>
+                        <Button size="medium" className="cant">立即购买</Button>
                     </div>
                 </div>
             </div>
@@ -113,3 +112,6 @@ function Bear() {
 }
 
 export default Bear
+
+//这个按钮这里，注意，移动的是 <Button />，但是事件回调函数是加在了 上面的 div 那里
+//因为如果你 Enter Leave 函数和改变位置的都是同一个标签的话，你 Enter 之后他移动位置他就自动 Leave 了，就自己回来，自己出去，发生闪烁

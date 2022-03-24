@@ -62,3 +62,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.button-cant {
+    z-index: 1;
+}
