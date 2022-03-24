@@ -19,16 +19,52 @@ function Footer() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
-    const handleCopy = (e) => {
-        const value = e.target.previousSibling.innerHTML;
+    // const handleCopy = (e) => {
+    //     const value = e.target.previousSibling.innerHTML;
 
-        const textarea = document.createElement('textarea');
-        textarea.value = value
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
+    //     const textarea = document.createElement('textarea');
+    //     textarea.value = value
+    //     document.body.appendChild(textarea);
+    //     textarea.select();
+    //     document.execCommand('copy');
+    //     document.body.removeChild(textarea);
+    // }
+
+    const handleCopy = (e) => {
+        initPro(e)
+        .then((value) => {
+            tips(e, value)
+        })
+        .then(() => {
+            Promise.all([])
+        })
+        .catch((err) => {
+            alert('复制不成功，请手动复制')
+        })
     }
+
+    const initPro = (e) => {
+        return new Promise((resolve, reject) => {
+            const value = e.target.previousSibling.innerHTML;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = value
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            resolve('复制成功！')
+        })
+    }
+
+    const tips = (e, value) => {
+        const button = e.target.innerHTML
+        // alert(button)
+        e.target.innerHTML = '复制成功！'
+        
+    }
+
+    
 
 
     if (pathname == '/') {
@@ -45,7 +81,7 @@ function Footer() {
                 <div>
                     <span>We-chat</span>
                     <span>alicetian972</span>
-                    <Button size="small" Click={(e) => handleCopy(e)}>
+                    <Button size="small" Click={(e) => handleCopy(e)} className="">
                         <Trans>copy wechat</Trans>
                     </Button>
                 </div>
