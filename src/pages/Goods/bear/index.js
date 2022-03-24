@@ -10,6 +10,19 @@ import dress from '../../../assets/carousel/dress.jpg'
 const imgsUrl = [bear, beg, desk, dress];
 
 function Bear () {
+
+    const handleMouseEnter = () => {
+        const button = document.getElementsByClassName('cant')[0];
+        button.style.position = "relative";
+        button.style.left = '70px';
+        button.style.top = '-50px'
+    }
+
+    const handleMouseLeave = () => {
+        const button = document.getElementsByClassName('cant')[0];
+        button.style.position = "static";
+    }
+
     return (
         <div className="good">
             <div className="imgs">
@@ -24,11 +37,12 @@ function Bear () {
             </div>
             <div className="infor">
                 <div className="infor-items">
-
                 </div>
                 <div className="infor-button">
                     <Button size="medium">加入购物车</Button>
-                    <Button size="medium">点击购买</Button>
+                    <div className="button-cant">
+                    <Button size="medium" MouseEnter={handleMouseEnter} MouseLeave={handleMouseLeave} className="cant">立即购买</Button>
+                    </div>
                 </div>
             </div>
         </div>
