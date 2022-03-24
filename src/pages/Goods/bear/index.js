@@ -13,7 +13,6 @@ function Bear() {
 
     const handleMouseEnterButton = () => {
         const button = document.getElementsByClassName('cant')[0];
-        console.log(button)
         button.style.position = "relative";
         button.style.left = '70px';
         button.style.top = '-50px'

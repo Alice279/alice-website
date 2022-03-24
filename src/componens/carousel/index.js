@@ -22,12 +22,12 @@ class Carousel extends Component {
         }
         this.rightClick = this.moveRight.bind(this)
         this.leftClick = this.moveLeft.bind(this)
+        this.handleStop = this.handleStop.bind(this)
     }
 
     generateItems() {
         const items = []
         let level
-        console.log(this.state.active)
         for (let i = this.state.active - 2; i < this.state.active + 3; i++) {
             let index = i
             if (i < 0) {
@@ -40,7 +40,7 @@ class Carousel extends Component {
         }
         return items
     }
- 
+
     moveLeft() {
         var newActive = this.state.active
         newActive--
@@ -49,7 +49,7 @@ class Carousel extends Component {
             direction: 'left'
         })
     }
- 
+
     moveRight() {
         var newActive = this.state.active
         this.setState({
@@ -57,12 +57,33 @@ class Carousel extends Component {
             direction: 'right'
         })
     }
-  
+
+    timeout = null
+
+    componentDidMount() {
+        console.log(222)
+        console.log(this.timeout)
+        this.timeout = setInterval(() => {
+            this.state.direction === 'left' ? this.moveLeft() : this.moveRight()
+        }, 1000)
+        console.log(this.timeout)
+    }
+
+    handleStop() {
+        clearInterval(this.timeout)
+    }
+
+    handleGoon = () => {
+        this.timeout = setInterval(() => {
+            this.state.direction === 'left' ? this.moveLeft() : this.moveRight()
+        }, 1000)
+    }
+
     render() {
-        return(
-            <div id="carousel" className="noselect">
+        return (
+            <div id="carousel" className="noselect" onMouseOver={this.handleStop} onMouseLeave={this.handleGoon}>
                 <div className="arrow arrow-left" onClick={this.leftClick}><i className="fi-arrow-left"></i></div>
-                <ReactCSSTransitionGroup 
+                <ReactCSSTransitionGroup
                     transitionName={this.state.direction}
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}>
@@ -76,20 +97,20 @@ class Carousel extends Component {
 }
 
 class Item extends Component {
-    
+
     constructor(props) {
         super(props)
         this.state = {
             level: this.props.level
         }
     }
-    
+
     render() {
         const className = 'item level' + this.props.level
-        return(
+        return (
             <div className={className}>
                 {/* {this.props.id} */}
-                <img className="images" src={imgsUrl[this.props.id]}/>
+                <img className="images" src={imgsUrl[this.props.id]} />
             </div>
         )
     }

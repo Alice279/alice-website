@@ -21,8 +21,8 @@ function Goods() {
         <div className="goods">
             <Carousel items={items} active={0} />
             <div>
-                {imgsUrl.map((item) => (
-                    <Link to="/bear">
+                {imgsUrl.map((item, index) => (
+                    <Link to="/bear" key={index}>
                         <img src={item} style={{width: '90px', height: '90px'}}/>
                     </Link>
                 ))}
