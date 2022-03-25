@@ -61,12 +61,9 @@ class Carousel extends Component {
     timeout = null
 
     componentDidMount() {
-        console.log(222)
-        console.log(this.timeout)
         this.timeout = setInterval(() => {
             this.state.direction === 'left' ? this.moveLeft() : this.moveRight()
         }, 1000)
-        console.log(this.timeout)
     }
 
     handleStop() {
@@ -77,6 +74,10 @@ class Carousel extends Component {
         this.timeout = setInterval(() => {
             this.state.direction === 'left' ? this.moveLeft() : this.moveRight()
         }, 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timeout)
     }
 
     render() {

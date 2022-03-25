@@ -19,24 +19,10 @@ function Footer() {
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
-    // const handleCopy = (e) => {
-    //     const value = e.target.previousSibling.innerHTML;
-
-    //     const textarea = document.createElement('textarea');
-    //     textarea.value = value
-    //     document.body.appendChild(textarea);
-    //     textarea.select();
-    //     document.execCommand('copy');
-    //     document.body.removeChild(textarea);
-    // }
-
     const handleCopy = (e) => {
         initPro(e)
         .then((value) => {
             tips(e, value)
-        })
-        .then(() => {
-            Promise.all([])
         })
         .catch((err) => {
             alert('复制不成功，请手动复制')
@@ -58,13 +44,14 @@ function Footer() {
     }
 
     const tips = (e, value) => {
-        const button = e.target.innerHTML
-        // alert(button)
-        e.target.innerHTML = '复制成功！'
+        const buttonText = e.target.innerHTML
+        e.target.innerHTML = value;
+
+        setTimeout(() => {
+            e.target.innerHTML = buttonText;
+        }, 1000)
         
     }
-
-    
 
 
     if (pathname == '/') {
