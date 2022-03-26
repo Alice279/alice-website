@@ -2,15 +2,6 @@ import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './index.scss'
 
-import bear from '../../assets/carousel/bear.jpg'
-import beg from '../../assets/carousel/beg.jpg'
-import desk from '../../assets/carousel/desk.jpg'
-import dress from '../../assets/carousel/dress.jpg'
-import mouse from '../../assets/carousel/mouse.jpg'
-import flower from '../../assets/carousel/flower.jpg'
-
-const imgsUrl = [bear, beg, desk, dress, mouse, flower, bear, beg, desk, dress, beg]
-
 class Carousel extends Component {
 
     constructor(props) {
@@ -36,7 +27,7 @@ class Carousel extends Component {
                 index = i % this.state.items.length
             }
             level = this.state.active - i
-            items.push(<Item key={index} id={this.state.items[index]} level={level} />)
+            items.push(<Item key={index} img={this.state.items[index]} level={level} />)
         }
         return items
     }
@@ -110,8 +101,7 @@ class Item extends Component {
         const className = 'item level' + this.props.level
         return (
             <div className={className}>
-                {/* {this.props.id} */}
-                <img className="images" src={imgsUrl[this.props.id]} />
+                <img className="images" src={this.props.img} />
             </div>
         )
     }

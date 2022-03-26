@@ -19,10 +19,10 @@ const imgs = [bear, beg, bracelet, desk, dress, eye, flower, hat, mouse, pillow]
 
 
 function Goods() {
-    var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     return (
         <div className="goods">
-            <Carousel items={items} active={0} />
+            <Carousel items={imgs} active={0} />
             <div>
                 {imgs.map((item, index) => (
                     <Link to="/bear" key={index}>
