@@ -87,7 +87,7 @@ function Cargo(props) {
     return (
         <div className="good">
             <div className="imgs">
-                <div className="imgs-main" onMouseEnter={handleMouseEnterImg} onMouseLeave={handleMouseLeaveImg} onMouseMove={(event) => handleMouseMove(event)}>
+                <div className="imgs-main" onMouseOver={handleMouseEnterImg} onMouseLeave={handleMouseLeaveImg} onMouseMove={(event) => handleMouseMove(event)}>
                     <div id="mouse-shadow"></div>
                     <img src={imgs[curImg]} />
                     <div className="imgs-big">
