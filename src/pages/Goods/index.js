@@ -23,16 +23,13 @@ function Goods() {
     return (
         <div className="goods">
             <Carousel items={imgs} active={0} />
-            <div>
+            <div className='show'>
                 {imgs.map((item, index) => (
                     <Link to="/bear" key={index}>
                         <img src={item}/>
                     </Link>
                 ))}
             </div>
-
-            
-
         </div>
     )
 }
