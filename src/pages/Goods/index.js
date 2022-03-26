@@ -1,18 +1,21 @@
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Carousel from '../../componens/Carousel'
 import './index.css'
 
-import Bear from './bear'
-
 import bear from '../../assets/carousel/bear.jpg'
 import beg from '../../assets/carousel/beg.jpg'
+import bracelet from '../../assets/carousel/bracelet.jpg'
 import desk from '../../assets/carousel/desk.jpg'
 import dress from '../../assets/carousel/dress.jpg'
-import mouse from '../../assets/carousel/mouse.jpg'
+import eye from '../../assets/carousel/eye.jpg'
 import flower from '../../assets/carousel/flower.jpg'
+import hat from '../../assets/carousel/hat.jpg'
+import mouse from '../../assets/carousel/mouse.jpg'
+import pillow from '../../assets/carousel/pillow.jpg'
 
-const imgsUrl = [bear, beg, desk, dress, mouse, flower, bear, beg, desk, dress, beg];
+
+const imgs = [bear, beg, bracelet, desk, dress, eye, flower, hat, mouse, pillow];
 
 
 function Goods() {
@@ -21,9 +24,9 @@ function Goods() {
         <div className="goods">
             <Carousel items={items} active={0} />
             <div>
-                {imgsUrl.map((item, index) => (
+                {imgs.map((item, index) => (
                     <Link to="/bear" key={index}>
-                        <img src={item} style={{width: '90px', height: '90px'}}/>
+                        <img src={item}/>
                     </Link>
                 ))}
             </div>
