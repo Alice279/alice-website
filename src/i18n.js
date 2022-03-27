@@ -23,7 +23,7 @@ const resources = {
     },
     zh: {
         translation: {
-            "About": "关于我",
+            "About": "关于",
             "Goods": "小铺",
             "Message": "留言",
             "en": "English",

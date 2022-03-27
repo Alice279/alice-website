@@ -12,7 +12,7 @@ function Header() {
 
     //颜色图标和语言选择图标的样式
     const style = {
-        fontSize: '36px'
+        fontSize: '39px'
     }
 
     //切换语言
@@ -38,7 +38,7 @@ function Header() {
                 <div className="header-image">
                     <Link to="/">
                         {isDarkMode ?
-                            <SmileTwoTone twoToneColor="#CD919E" style={style} /> :
+                            <SmileTwoTone twoToneColor="rgb(155,126,172)" style={style}/> :
                             <SmileTwoTone twoToneColor="#eb2f96" style={style} />}
                     </Link>
                 </div>
@@ -52,12 +52,12 @@ function Header() {
                 <div className="header-icon">
                     <div className="icon-mode" onClick={toggleMode}>
                         {isDarkMode ?
-                            <StarTwoTone twoToneColor="#CD919E" style={style} /> :
+                            <StarTwoTone twoToneColor="rgb(155,126,172)" style={style} /> :
                             <StarTwoTone twoToneColor="#eb2f96" style={style} />}
                     </div>
                     <div onClick={toggleBord}>
                         {isDarkMode ?
-                            <DownCircleTwoTone twoToneColor="#CD919E" style={style} /> :
+                            <DownCircleTwoTone twoToneColor="rgb(155,126,172)" style={style} /> :
                             <DownCircleTwoTone twoToneColor="#eb2f96" style={style} />}
 
                         <div className="change-language">
