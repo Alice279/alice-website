@@ -12,7 +12,10 @@ import Goods from '../pages/Goods'
 import Message from '../pages/Message'
 import './App.css'
 
+import Navbar from '../componens/Header/Navbar'
+
 import Bear from './Goods/bear'
+
 
 export const cardContext = createContext({})
 
@@ -30,7 +33,7 @@ function App() {
     <Suspense fallback={<div>稍等片刻</div>}>
       <Router>
         <div className="page">
-          <Header />
+          <Navbar />
           <Switch>
             <cardContext.Provider value={value}>
               <Route path="/" exact>

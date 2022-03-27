@@ -1,0 +1,142 @@
+.sticky {
+    background-color: #1b1a2ea9;
+    transition: all 0.3s ease-out 0s;
+    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+    backdrop-filter: blur(15px);
+}
+  
+.navbar {
+    position: fixed;
+    transition: all 0.3s ease-out 0s;
+    padding: 0.3rem 2rem;
+    font-size: 1.2rem;
+}
+  
+.navbar-toggler {
+    position: relative;
+}
+  
+.navbar-toggler span {
+    display: block;
+    background-color: #be50f4;
+    height: 4px;
+    width: 27px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transform: rotate(0deg);
+}
+  
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: 0;
+  box-shadow: none !important;
+}
+  
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+    transition: transform 0.35s ease-in-out;
+    transition: transform 0.35s ease-in-out;
+}
+  
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    transform: rotate(135deg);
+    opacity: 0.9;
+}
+  
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    height: 12px;
+    visibility: hidden;
+    background-color: transparent;
+}
+  
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    transform: rotate(-135deg);
+    opacity: 0.9;
+}
+  
+
+
+.navbar-collapse {
+    margin: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 767px) {
+    .navbar {
+      padding: 1rem 2rem;
+      font-size: 1.4rem !important;
+      background-color: #181a27 !important;
+    }
+    .navbar-nav .nav-item a::after {
+      display: none !important;
+    }
+    .navbar-collapse {
+        justify-content: center;
+    }
+}
+  
+.logo {
+    height: 70px;
+    width: 70px;
+}
+  
+.navbar-nav .nav-link {
+    color: white !important;
+    margin: 0 15px;
+    padding: 0;
+}
+
+
+@media (max-width: 767px) {
+    /* .navbar */
+    
+    .nav-link {
+      padding: 0.7rem 1rem !important;
+    }
+}
+  
+.navbar-nav .nav-item a {
+    font-weight: 400;
+    transition: all 0.3s ease-out 0s;
+    position: relative;
+    z-index: 1;
+}
+  
+.navbar-nav .nav-item a::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 5px;
+    width: 0;
+    border-radius: 16px;
+    background: #c95bf5;
+    bottom: 1px;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s ease-out 0s;
+}
+  
+.navbar-nav .nav-item a:hover::after {
+    width: 100%;
+}
+
+.button-theme {
+    margin:0 15px;
+}
+
+@media (max-width: 767px) {
+    .nav-item {
+        display: flex;
+        justify-content: center;
+    }
+    .button-theme {
+        margin: 10px 0;
+    }
+}
