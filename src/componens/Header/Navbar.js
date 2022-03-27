@@ -77,19 +77,19 @@ function NavBar() {
           <Nav defaultActiveKey="#about">
             <Nav.Item>
               <Nav.Link as={Link} to="/about" onClick={() => updateExpanded(false)}>
-                About
+                {t('About')}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link as={Link} to="/goods" onClick={() => updateExpanded(false)}>
-                Goods
+                {t('Goods')}
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link as={Link} to="/message" onClick={() => updateExpanded(false)}>
-                Message
+                {t('Message')}
               </Nav.Link>
             </Nav.Item>
 

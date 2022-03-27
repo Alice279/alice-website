@@ -21,16 +21,18 @@ const imgs = [bear, beg, bracelet, desk, dress, eye, flower, hat, mouse, pillow]
 function Goods() {
     // var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     return (
-        <div className="goods">
-            <Carousel items={imgs} active={0} />
-            <div className='show'>
-                {imgs.map((item, index) => (
-                    <Link to="/bear" key={index}>
-                        <img src={item}/>
-                    </Link>
-                ))}
+        <section>
+            <div className="goods">
+                <Carousel items={imgs} active={0} />
+                <div className='show'>
+                    {imgs.map((item, index) => (
+                        <Link to="/bear" key={index}>
+                            <img src={item} />
+                        </Link>
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

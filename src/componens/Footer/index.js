@@ -61,22 +61,22 @@ function Footer() {
         <div className="footer">
             <ul className="footer-basic">
                 <li><Trans>Developer Information</Trans></li>
-                <li><Trans>name</Trans>：<Trans>Alice</Trans></li>
-                <li><Trans>school：BUPT</Trans></li>
+                <li><Trans>Alice</Trans></li>
+                <li><Trans>BUPT</Trans></li>
             </ul>
             <div className="footer-copy">
                 <div>
                     <span>We-chat</span>
                     <span>alicetian972</span>
                     <Button size="small" Click={(e) => handleCopy(e)} className="">
-                        <Trans>copy wechat</Trans>
+                        <Trans>copy</Trans>
                     </Button>
                 </div>
                 <div>
                     <span>E-mail</span>
                     <span>1196271266@qq.com</span>
                     <Button size="small" Click={(e) => handleCopy(e)}>
-                        <Trans>copy email</Trans>
+                        <Trans>copy</Trans>
                     </Button>
                 </div>
             </div>
@@ -91,8 +91,8 @@ function Footer() {
             </div>
             <div className="footer-arrow" onClick={handleClick}>
                 {isDarkMode ?
-                    <UpSquareTwoTone twoToneColor="#CD919E" style={{ fontSize: '98px' }} /> :
-                    <UpSquareTwoTone twoToneColor="#eb2f96" style={{ fontSize: '98px' }} />}
+                    <UpSquareTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '60px' }} /> :
+                    <UpSquareTwoTone twoToneColor="#eb2f96" style={{ fontSize: '60px' }} />}
             </div>
         </div>
     )
