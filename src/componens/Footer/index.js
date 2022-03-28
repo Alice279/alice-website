@@ -41,7 +41,7 @@ function Footer() {
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            resolve('复制成功！')
+            resolve('success!')
         })
     }
 
