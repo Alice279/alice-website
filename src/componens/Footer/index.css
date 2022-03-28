@@ -6,6 +6,7 @@
 .line {
     border-top: 1px var(--active-color) solid;
     margin: 0 0 30px 0;
+    transform: scaleY(0.5);
 }
 
 .footer-content {

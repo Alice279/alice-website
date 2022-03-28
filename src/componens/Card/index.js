@@ -26,16 +26,16 @@ function Card(props) {
     const { value: isDarkMode } = useTheme()
 
     const icon = useMemo(() => {
-        if (active) {
+        if (active[index]) {
             if (isDarkMode) return (
-                <DownCircleTwoTone twoToneColor="#CD919E" style={{ fontSize: '36px' }} />
+                <DownCircleTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '36px' }} />
             )
             return (
                 <DownCircleTwoTone twoToneColor="#eb2f96" style={{ fontSize: '36px' }} />
             )
         } else {
             if (isDarkMode) return (
-                <RightCircleTwoTone twoToneColor="#CD919E" style={{ fontSize: '36px' }} />
+                <RightCircleTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '36px' }} />
             )
             return (
                 <RightCircleTwoTone twoToneColor="#eb2f96" style={{ fontSize: '36px' }} />
@@ -60,9 +60,7 @@ function Card(props) {
     }, [])
 
     return (
-        <div className="card"
-            id={active[index] === true ? 'unfold' : ''}
-            style={isDarkMode ? { border: '3px solid #CD919E' } : { border: '3px solid #eb2f96' }}>
+        <div className="card" id={active[index] === true ? 'unfold' : ''}>
             <div className="card-title" onClick={() => handleClick(index)}>
                 {icon}
                 <div style={{ margin: '0 12px' }}><Trans>{title}</Trans></div>

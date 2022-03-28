@@ -18,6 +18,10 @@ function NavBar() {
 
   //暗黑高亮模式的切换
   const { value: isDarkMode, toggle: toggleMode } = useTheme()
+  const changeMode = () => {
+    toggleMode();
+    updateExpanded(false);
+  }
 
   //切换语言
   const { t, i18n } = useTranslation()
@@ -28,6 +32,7 @@ function NavBar() {
     } else if (language.indexOf('zh') !== -1) {
       i18n.changeLanguage('en')
     }
+    updateExpanded(false)
   }
   // const languages = ['en', 'zh'];
 
@@ -93,9 +98,8 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-
             <Nav.Item>
-              <Button className="button-theme" size="xsmall" Click={toggleMode}>
+              <Button className="button-theme" size="xsmall" Click={changeMode}>
                 {isDarkMode ? <Sun /> : <Moon />}
               </Button>
             </Nav.Item>
@@ -103,9 +107,9 @@ function NavBar() {
             <Nav.Item>
               <Button className="button-theme" size="xsmall" Click={changeLanguage}>
                 {language.indexOf('en') !== -1 ? (
-                  <EnIcon />
+                  <ZhIcon />
                 ) : (
-                    <ZhIcon />
+                    <EnIcon />
                   )}
               </Button>
             </Nav.Item>
