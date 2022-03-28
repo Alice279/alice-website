@@ -3,6 +3,8 @@ import Card from '../../componens/Card'
 import './index.css'
 // import {cardContext} from '../App'
 
+import { Container, Row, Col } from 'react-bootstrap'
+
 function About() {
 
     const datas = {
@@ -18,12 +20,18 @@ function About() {
     return (
         <section>
             <div className="about">
-                {Object.keys(datas).map((item, index) => (
-                    <Card key={item} title={item} array={datas[item]} index={index} />
-                ))}
+                <Container>
+                    <Row>
+                        {Object.keys(datas).map((item, index) => (
+                            <Card key={item} title={item} array={datas[item]} index={index} />
+                        ))}
+                    </Row>
+                </Container>
             </div>
         </section>
     )
 }
 
 export default About
+
+// 这里放了一个section，后面的about才能被内容撑开，不晓得为啥，可能和Container有关系

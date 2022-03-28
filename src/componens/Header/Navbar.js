@@ -3,7 +3,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logoDark from "../../assets/logo.png";
+import logoLight from "../../assets/logo_light.png";
 import './Navbar.css'
 import Button from '../Button'
 import { default as Sun } from '../../assets/svg/Sun'
@@ -64,7 +65,7 @@ function NavBar() {
       <Container>
 
         <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="logo" />
+          <img src={isDarkMode ? logoDark : logoLight} className="img-fluid logo" alt="logo" />
         </Navbar.Brand>
 
         <Navbar.Toggle

@@ -16,7 +16,7 @@ function Button({
             return { backgroundColor: '#CD919E', boxShadow: '0 0 20px #CD919E' }
         } else {
             if (isDarkMode) return { backgroundColor: 'rgb(205,95,248)', boxShadow: '0 0 20px rgb(205,95,248)' }
-            return { backgroundColor: '#eb2f96', boxShadow: '0 0 20px #eb2f96' }
+            return { backgroundColor: 'rgb(113,152,169)', boxShadow: '0 0 20px rgb(113,152,169)' }
         }
     }, [isDarkMode, place])
 

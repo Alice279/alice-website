@@ -17,7 +17,7 @@ code {
 
 .dark {
   --bg-color: rgb(22, 17, 37);
-  --font-color: rgb(187, 187, 187);
+  --font-color: rgb(221, 219, 219);
   --bord-color: rgb(157, 116, 180);
   --active-color:rgb(205,95,248);
 }
@@ -25,10 +25,6 @@ code {
 .light {
   --bg-color: rgb(230, 230, 250);
   --font-color: #1C1C1C;
-  --bord-color: rgb(155,126,172);
-  --active-color:rgb(205,95,248);
-}
-
-section {
-  margin-top: 120px;
+  --bord-color: rgb(83, 111, 124);
+  --active-color:rgb(113,152,169);
 }

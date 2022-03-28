@@ -6,7 +6,9 @@ import useTheme from '../../hooks/useTheme'
 import Button from '../Button'
 import './index.css'
 import gitDark from '../../assets/git_dark.png'
+import gitLight from '../../assets/git_light.png'
 import wechatDark from '../../assets/wechat_dark.png'
+import wechatLight from '../../assets/wechat_light.png'
 import wechatAlice from '../../assets/wechat_alice.jpg'
 
 function Footer() {
@@ -85,17 +87,17 @@ function Footer() {
                 </div>
                 <div className="footer-img">
                     <a href="https://github.com/Alice279" target="_blank">
-                        <img src={gitDark} alt="github" />
+                        <img src={isDarkMode? gitDark : gitLight} alt="github" />
                     </a>
                     <a className="wechat" href="#" onClick={(e) => { e.preventDefault() }}>
-                        <img src={wechatDark} alt="wechat" />
+                        <img src={isDarkMode? wechatDark : wechatLight } alt="wechat" />
                         <img className="wechat-alice" src={wechatAlice} alt="wechat-alice" />
                     </a>
                 </div>
                 <div className="footer-arrow" onClick={handleClick}>
                     {isDarkMode ?
                         <UpSquareTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '60px' }} /> :
-                        <UpSquareTwoTone twoToneColor="#eb2f96" style={{ fontSize: '60px' }} />}
+                        <UpSquareTwoTone twoToneColor="rgb(113,152,169)" style={{ fontSize: '60px' }} />}
                 </div>
             </div>
         </div>
