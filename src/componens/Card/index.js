@@ -55,7 +55,7 @@ function Card(props) {
         let ele = document.getElementById('unfold');
         if (ele) {
             window.scrollTo({
-                top: heightToTop(ele),
+                top: heightToTop(ele) - 150,
                 behavior: 'smooth'
             })
         }
