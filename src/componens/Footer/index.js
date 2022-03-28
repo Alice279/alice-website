@@ -21,12 +21,12 @@ function Footer() {
 
     const handleCopy = (e) => {
         initPro(e)
-        .then((value) => {
-            tips(e, value)
-        })
-        .catch((err) => {
-            alert('复制不成功，请手动复制')
-        })
+            .then((value) => {
+                tips(e, value)
+            })
+            .catch((err) => {
+                alert('复制不成功，请手动复制')
+            })
     }
 
     const initPro = (e) => {
@@ -50,8 +50,9 @@ function Footer() {
         setTimeout(() => {
             e.target.innerHTML = buttonText;
         }, 1000)
-        
+
     }
+
 
 
     if (pathname == '/') {
@@ -59,40 +60,43 @@ function Footer() {
     }
     return (
         <div className="footer">
-            <ul className="footer-basic">
-                <li><Trans>Developer Information</Trans></li>
-                <li><Trans>Alice</Trans></li>
-                <li><Trans>BUPT</Trans></li>
-            </ul>
-            <div className="footer-copy">
-                <div>
-                    <span>We-chat</span>
-                    <span>alicetian972</span>
-                    <Button size="small" Click={(e) => handleCopy(e)} className="">
-                        <Trans>copy</Trans>
-                    </Button>
+            <div className="line"></div>
+            <div className="footer-content">
+                <ul className="footer-basic">
+                    <li><Trans>Developer Information</Trans></li>
+                    <li><Trans>Alice</Trans></li>
+                    <li><Trans>BUPT</Trans></li>
+                </ul>
+                <div className="footer-copy">
+                    <div>
+                        <span>We-chat</span>
+                        <span>alicetian972</span>
+                        <Button size="small" Click={(e) => handleCopy(e)} className="">
+                            <Trans>copy</Trans>
+                        </Button>
+                    </div>
+                    <div>
+                        <span>E-mail</span>
+                        <span>1196271266@qq.com</span>
+                        <Button size="small" Click={(e) => handleCopy(e)}>
+                            <Trans>copy</Trans>
+                        </Button>
+                    </div>
                 </div>
-                <div>
-                    <span>E-mail</span>
-                    <span>1196271266@qq.com</span>
-                    <Button size="small" Click={(e) => handleCopy(e)}>
-                        <Trans>copy</Trans>
-                    </Button>
+                <div className="footer-img">
+                    <a href="https://github.com/Alice279" target="_blank">
+                        <img src={gitDark} alt="github" />
+                    </a>
+                    <a className="wechat" href="#" onClick={(e) => { e.preventDefault() }}>
+                        <img src={wechatDark} alt="wechat" />
+                        <img className="wechat-alice" src={wechatAlice} alt="wechat-alice" />
+                    </a>
                 </div>
-            </div>
-            <div className="footer-img">
-                <a href="https://github.com/Alice279" target="_blank">
-                    <img src={gitDark} alt="github" />
-                </a>
-                <a className="wechat" href="#" onClick={(e) => { e.preventDefault() }}>
-                    <img src={wechatDark} alt="wechat" />
-                    <img className="wechat-alice" src={wechatAlice} alt="wechat-alice" />
-                </a>
-            </div>
-            <div className="footer-arrow" onClick={handleClick}>
-                {isDarkMode ?
-                    <UpSquareTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '60px' }} /> :
-                    <UpSquareTwoTone twoToneColor="#eb2f96" style={{ fontSize: '60px' }} />}
+                <div className="footer-arrow" onClick={handleClick}>
+                    {isDarkMode ?
+                        <UpSquareTwoTone twoToneColor="rgb(205,95,248)" style={{ fontSize: '60px' }} /> :
+                        <UpSquareTwoTone twoToneColor="#eb2f96" style={{ fontSize: '60px' }} />}
+                </div>
             </div>
         </div>
     )
