@@ -1,7 +1,7 @@
 .home {
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/bg-home.jpg');
+    /* background-image: url('../../assets/bg-home.jpg'); */
     background-size: 100% 100%;
     position: relative;
 }
@@ -11,4 +11,23 @@
     left: 50%;
     transform: translateX(-50%);
     top: 50%;
+}
+
+.button:hover {
+    transition:transform .2s ease-out;
+    transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+    .home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .button {
+        position: static;
+        transform: none;
+        margin-bottom: 60px;
+    }
 }

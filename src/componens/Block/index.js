@@ -7,9 +7,10 @@ function Block ({name, index}) {
     const style = {
         width: '70px',
         height: '70px',
-        backgroundColor: 'rgb(226, 196, 102)',
+        backgroundColor: 'rgb(83, 111, 124)',
         borderRadius: '20px',
-        outline: '6px solid rgb(217, 129, 75)',
+        outline: '6px solid rgb(113,152,169)',
+        boxShadow: '0 0 45px 13px rgb(83, 111, 124)',
 
         display: 'flex',
         justifyContent: 'center',

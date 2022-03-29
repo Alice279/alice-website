@@ -13,7 +13,7 @@ function Button({
 
     const colorStyle = useMemo(() => {
         if (place == 'home') {
-            return { backgroundColor: '#CD919E', boxShadow: '0 0 20px #CD919E' }
+            return { backgroundColor: 'rgb(205,95,248)', boxShadow: '0 0 30px 6px rgb(205,95,248)' }
         } else {
             if (isDarkMode) return { backgroundColor: 'rgb(205,95,248)', boxShadow: '0 0 20px rgb(205,95,248)' }
             return { backgroundColor: 'rgb(113,152,169)', boxShadow: '0 0 20px rgb(113,152,169)' }

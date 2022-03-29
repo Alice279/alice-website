@@ -16,12 +16,11 @@
   }
 
   .avatar {
-    width: 50px;
     position: absolute;
     top: 50%;
-    margin-top: -10%;
+    margin-top: -6%;
     left: 50%;
-    margin-left: -10%;
+    margin-left: -6%;
     animation: circular-smooth-spin 42s infinite linear;
     animation-play-state: running;
   }
@@ -56,10 +55,45 @@
 
   @keyframes circular-smooth-spin {
     from {
-      transform: rotate(0turn) translateY(calc(47vh - 52px)) rotate(1turn)
+      transform: rotate(0turn) translateY(calc(47vh - 129px)) rotate(1turn)
     }
     to {
       opacity: 1;
-      transform: rotate(1turn) translateY(calc(47vh - 52px)) rotate(0turn)
+      transform: rotate(1turn) translateY(calc(47vh - 129px)) rotate(0turn)
     }
   }
+
+@media (max-width: 767px) {
+
+  .main {
+    position: static;
+    transform: none;
+    height: auto;
+  }
+
+  .path {
+    border: none;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7vh;
+  }
+
+  .avatar {
+    animation: none;
+    position: static;
+    margin: 20px 13px;
+    height: 70px;
+  }
+
+  .avatar:hover {
+    transition:transform .2s ease-out;
+    transform: scale(1.1);
+  }
+
+
+
+}
