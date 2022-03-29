@@ -16,7 +16,9 @@ function Block ({name, index}) {
         justifyContent: 'center',
         alignItems: 'center',
 
-        cursor: 'pointer'
+        cursor: 'pointer',
+
+        color: 'rgb(230, 230, 250)'
     }
 
     const history = useHistory();
