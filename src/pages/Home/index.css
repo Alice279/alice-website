@@ -13,11 +13,6 @@
     top: 50%;
 }
 
-.button:hover {
-    transition:transform .2s ease-out;
-    transform: scale(1.2);
-}
-
 @media (max-width: 767px) {
     .home {
         display: flex;
@@ -29,5 +24,9 @@
         position: static;
         transform: none;
         margin-bottom: 60px;
+    }
+    .button:hover {
+        transition:transform .2s ease-out;
+        transform: scale(1.2);
     }
 }
