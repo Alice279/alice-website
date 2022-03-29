@@ -20,7 +20,8 @@ function Home() {
 
     return (
         <div className="home">
-            <Particles params={{
+            <Particles 
+            params={{
                 particles: {
                     number: {
                         value: 1,
@@ -65,7 +66,7 @@ function Home() {
                     },
                 },
                 retina_detect: true,
-            }} />
+            }}/>
             <Circle className="circle" />
             <Button className="button" Click={handleClick} place="home">Come on!</Button>
         </div>
