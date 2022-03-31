@@ -16,14 +16,13 @@
     text-decoration: none;
     font-size: large;
     text-align: center;
-    color: var(--bord-color);
+    color: var(--active-color);
     font-size: 25px;
     padding-bottom: 6px;
 }
 
 .nav-link.active {
     border-bottom: 3px var(--active-color) solid;
-    color: var(--bord-color);
 }
 
 .header-icon {
