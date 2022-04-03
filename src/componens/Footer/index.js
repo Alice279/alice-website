@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { UpSquareTwoTone } from '@ant-design/icons'
-import { Trans } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 import useTheme from '../../hooks/useTheme'
 import Button from '../Button'
 import './index.css'
@@ -55,7 +55,7 @@ function Footer() {
 
     }
 
-
+    const { t, i18n } = useTranslation()
 
     if (pathname == '/') {
         return null
@@ -65,32 +65,32 @@ function Footer() {
             <div className="line"></div>
             <div className="footer-content">
                 <ul className="footer-basic">
-                    <li><Trans>Developer Information</Trans></li>
-                    <li><Trans>Alice</Trans></li>
-                    <li><Trans>BUPT</Trans></li>
+                    <li>{t('Developer')}</li>
+                    <li>{t('Alice')}</li>
+                    <li>{t('BUPT')}</li>
                 </ul>
                 <div className="footer-copy">
                     <div>
-                        <span>We-chat</span>
+                        <span>{t('We-chat')}</span>
                         <span>alicetian972</span>
                         <Button size="small" Click={(e) => handleCopy(e)} className="">
-                            <Trans>copy</Trans>
+                            {t('copy')}
                         </Button>
                     </div>
                     <div>
-                        <span>E-mail</span>
+                        <span>{t('E-mail')}</span>
                         <span>1196271266@qq.com</span>
                         <Button size="small" Click={(e) => handleCopy(e)}>
-                            <Trans>copy</Trans>
+                            {t('copy')}
                         </Button>
                     </div>
                 </div>
                 <div className="footer-img">
                     <a href="https://github.com/Alice279" target="_blank">
-                        <img src={isDarkMode? gitDark : gitLight} alt="github" />
+                        <img src={isDarkMode ? gitDark : gitLight} alt="github" />
                     </a>
                     <a className="wechat" href="#" onClick={(e) => { e.preventDefault() }}>
-                        <img src={isDarkMode? wechatDark : wechatLight } alt="wechat" />
+                        <img src={isDarkMode ? wechatDark : wechatLight} alt="wechat" />
                         <img className="wechat-alice" src={wechatAlice} alt="wechat-alice" />
                     </a>
                 </div>

@@ -1,4 +1,5 @@
-import React, { useReducer, useRef, useEffect, useState } from 'react'
+import React, { useReducer, useRef, useEffect } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import axios from 'axios'
 import Button from '../../componens/Button'
 import './index.css'
@@ -82,17 +83,19 @@ function Message() {
             .then(res => addPreMessage(res))
     }, [])
 
+    const { t } = useTranslation()
+
     return (
         <div className="message">
             <div className="message-add">
                 <textarea ref={inputRef} placeholder="say something"></textarea>
                 <div className="buttons">
-                    <Button size="small">登录</Button>
-                    <Button size="small" Click={(event) => handlePub(event)}>发布</Button>
+                    <Button size="small">{t('Login')}</Button>
+                    <Button size="small" Click={(event) => handlePub(event)}>{t('Publish')}</Button>
                 </div>
             </div>
             <div className="message-show">
-                {items.reverse().map(item => (
+                {items.map(item => (
                     <div key={item.id} className="one-message">
                         <div className="message-content">{item.content}</div>
                         <Button className="del-button" size="xsmall" Click={(event) => handleDel(event, item.id)}>D</Button>

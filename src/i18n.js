@@ -8,17 +8,16 @@ const resources = {
             "About": "About",
             "Goods": "Goods",
             "Message": "Message",
-            "en": "English",
-            "zh": "中文",
 
-            "Browser": "Browser",
-
-            "Developer Information": "Developer Information",
-            "name": "name",
+            "Developer": "Developer",
             "Alice": "Alice",
-            "school：BUPT": "school：BUPT23",
-            "We-chat": "We-chat",
-            "E-mail": "E-mail"
+            "BUPT": "BUPT23",
+            "We-chat": "Wechat",
+            "E-mail": "Email",
+            "copy": "copy",
+
+            "Login": "Login",
+            "Publish": "Publish"
         }
     },
     zh: {
@@ -26,17 +25,16 @@ const resources = {
             "About": "关于",
             "Goods": "小铺",
             "Message": "留言",
-            "en": "English",
-            "zh": "中文",
 
-            "Browser": "浏览器相关",
-
-            "Developer Information": "开发者信息",
-            "name": "姓名",
+            "Developer": "开发者信息",
             "Alice": "田润",
-            "school：BUPT": "学校：北邮23届",
+            "BUPT": "北邮23届",
             "We-chat": "微信",
-            "E-mail": "邮箱"
+            "E-mail": "邮箱",
+            "copy": "复制",
+
+            "Login": "登录",
+            "Publish": "发布"
         }
     }
 };

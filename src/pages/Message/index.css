@@ -34,8 +34,12 @@
     box-shadow: 0 0 10px var(--active-color);
 }
 
+.message-show {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .one-message {
-    /* height: 90px; */
     background-color: transparent;
     border: 2px var(--active-color) solid;
     border-radius: 20px;
@@ -48,11 +52,41 @@
 
 .message-content {
     flex-grow: 1;
-    /* flex-shrink: 0; */
     margin: 0 20px 0 40px;
 }
 
 .del-button {
     margin: 20px;
     flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+
+    .message-add {
+        flex-direction: column;
+    }
+
+    .message-add textarea {
+        width: 250px;
+    }
+
+    .buttons {
+        flex-direction: row;
+    
+        height: 50px;
+        width: 250px;
+        justify-content: space-around;
+        margin-left: 0;
+        margin-top: 17px;
+    }
+
+    .message-show {
+        align-items: center;
+    }
+
+    .one-message {
+        width: 250px;
+    }
+
+    
 }
