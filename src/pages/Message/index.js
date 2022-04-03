@@ -92,7 +92,7 @@ function Message() {
                 </div>
             </div>
             <div className="message-show">
-                {items.map(item => (
+                {items.reverse().map(item => (
                     <div key={item.id} className="one-message">
                         <div className="message-content">{item.content}</div>
                         <Button className="del-button" size="xsmall" Click={(event) => handleDel(event, item.id)}>D</Button>

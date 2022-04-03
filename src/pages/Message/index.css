@@ -1,6 +1,8 @@
 .message {
     width: 50%;
-    margin: 120px auto;
+    margin: 120px auto 0;
+
+    min-height: calc(100vh  - 320px);
 }
 
 .message-add {
@@ -21,16 +23,21 @@
 .message-add textarea {
     flex-grow: 1;
     height: 90px;
-    background-color: var(--weak-color);
-    border: 1px var(--active-color) solid;
+    background-color: transparent;
+    border: 2px var(--active-color) solid;
     border-radius: 20px;
     outline: none;
+    color: var(--font-color);
+}
+
+.message-add textarea:focus {
+    box-shadow: 0 0 10px var(--active-color);
 }
 
 .one-message {
     /* height: 90px; */
-    background-color: var(--weak-color);
-    border: 1px var(--active-color) solid;
+    background-color: transparent;
+    border: 2px var(--active-color) solid;
     border-radius: 20px;
 
     display: flex;
