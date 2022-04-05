@@ -85,12 +85,28 @@ function Message() {
 
     const { t } = useTranslation()
 
+
+    /////////// handle Login ///////
+    const handleLogin = () => {
+        // axios({
+        //     method: 'GET',
+        //     url: 'https://github.com/login/oauth/authorize?client_id=8815468cbdbf6f580524&state=STATE&redirect_uri=http://localhost:9000/testAPI/login',
+        // //    url: 'http://localhost:9000/testAPI/getRegisterInfo'
+        // headers: {
+        //     accept:'application/json',
+        // }
+        // })
+        
+        let popWin = window.open('https://github.com/login/oauth/authorize?client_id=8815468cbdbf6f580524&state=STATE&redirect_uri=http://localhost:9000/testAPI/login')
+
+    }
+
     return (
         <div className="message">
             <div className="message-add">
                 <textarea ref={inputRef} placeholder="say something"></textarea>
                 <div className="buttons">
-                    <Button size="small">{t('Login')}</Button>
+                    <Button size="small" Click={handleLogin}>{t('Login')}</Button>
                     <Button size="small" Click={(event) => handlePub(event)}>{t('Publish')}</Button>
                 </div>
             </div>
